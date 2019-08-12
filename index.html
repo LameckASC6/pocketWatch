@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="178361234445-fp76ho0kckgu2e7k04k4bb8k75f3ij7u.apps.googleusercontent.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="login/login.css" rel="stylesheet" type="text/css">
+    <script src="bcrypt.min.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCaQsq7cUWnvMeCw98kXi_VlmYqB0cM_0",
+            authDomain: "pocketwatch-dd456.firebaseapp.com",
+            databaseURL: "https://pocketwatch-dd456.firebaseio.com",
+            projectId: "pocketwatch-dd456",
+            storageBucket: "pocketwatch-dd456.appspot.com",
+            messagingSenderId: "178361234445",
+            appId: "1:178361234445:web:917ab3f6431bf805"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="login/login.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700|Cabin:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navBar">
+        <div id="image">
+            <image src="../pocketWatchLogo_Circle.png" class="logoimg"></image>
+        </div>
+        <div id="navText">
+            <h1 id="title">PocketWatch</h1>
+        </div>
+    </div>
+
+    <div class="login">
+        <h1 id="main_title"></h1>
+        <p id="story_result"></p>
+        <form class="login_container">
+            <div class="loginInput">
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="loginInput">
+                <input type="text" id="password" placeholder="Password">
+            </div>
+            <button id="submit_button">
+                LOGIN
+            </button>
+        </form>
+        <div id="my-signin2"></div>
+        <a href="signUp/signUp.html">
+            Sign Up
+        </a>
+    </div>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
