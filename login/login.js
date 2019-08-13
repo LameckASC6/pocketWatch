@@ -20,7 +20,14 @@ let hashedPassword = bcrypt.hashSync(password.value, 10);
   }
 
   function onSuccess(googleUser) {
-    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    let profile = {
+      email: googleUser.getBasicProfile().getEmail(),
+      username: googleUser.getBasicProfile().getName(),
+      image: googleUser.getBasicProfile().getImageUrl(),
+      password: ""
+    }
+    database.ref().push(profile);
+    window.location.href="../Overview/overview.html";
   }
 
   function onFailure(error) {
