@@ -1,4 +1,4 @@
-const database = firebase.database().ref();
+const database = firebase.database();
 let bcrypt = dcodeIO.bcrypt;
 
 
@@ -27,11 +27,21 @@ let hashedPassword = bcrypt.hashSync(password.value, 10);
     console.log(error);
   }
 
-function signIn(event) {
+async function signIn(event) {
     event.preventDefault();
     console.log(database);
 }
 
 signInButton.addEventListener('click', signIn);
 
-database.on('', )
+var leadsRef = database.ref('pocketwatch-dd456');
+leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+    });
+});
+
+function addMessage(data) {
+    console.log(database);
+    console.log(data);
+}
