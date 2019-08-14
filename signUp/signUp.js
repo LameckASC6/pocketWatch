@@ -10,16 +10,51 @@ let signUpButton = document.getElementById("submit_button");
 
 let emailCheck = /\w+\@\w+\.\w+/;
 let passwordCheck = /\w{6}/;
+//Google Sign Up
+function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
 
-function signUp(event) {
+  function onSuccess(googleUser) {
+
+    let profile = {
+      email: googleUser.getBasicProfile().getEmail(),
+      username: googleUser.getBasicProfile().getName(),
+      image: googleUser.getBasicProfile().getImageUrl(),
+      password: ""
+    }
+
+    database.child('users').push(profile);
+    console.log(googleUser);
+    window.location.href="../Overview/overview.html";
+  }
+
+  function onFailure(error) {
+    console.log(error);
+  }
+  //End of Google Sign Up
+async function signUp(event) {
     event.preventDefault();
 
     let emailPass = true;
     let passwordPass1 = true;
     let passwordPass2 = true;
-    
+
     if (!emailCheck.test(email.value)) {
         alert("email not correct");
+        for (let i; i < database.child(`users`).length; i++) {
+            if (database.child(`users`).val()) {
+
+            }
+        }
         emailPass = false;
     }
     if (!passwordCheck.test(password.value)) {
@@ -31,19 +66,26 @@ function signUp(event) {
         alert("Password's aren't the same");
         passwordPass2 = false;
     }
-    
+
     let hashedPassword = bcrypt.hashSync(password.value, 10);
-    
+
     const value = {
-        Email: email.value,
-        Username: username.value,
-        Password: hashedPassword,
+        email: email.value,
+        username: username.value,
+        image: "../profileImage.png",
+        password: hashedPassword
     }
 
+    console.log(value);
+
     //Update database here
-    if(emailPass == true && passwordPass1 == true && passwordPass2 == true){
-        console.log("Valid inputs");
-        database.child('users').push(value);
+    if (emailPass == true && passwordPass1 == true && passwordPass2 == true) {
+        let usernameCheck = await database.child('users').orderByChild('username').equalTo(value.username).once("value");
+        usernameCheck = usernameCheck.val();
+        if(!myVal){
+            console.log("Valid inputs");
+            database.child('user').push(value);
+        }
     }
 }
 

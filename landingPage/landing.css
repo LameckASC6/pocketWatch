@@ -1,8 +1,41 @@
 body {
     width: 100%;
     height: 100%;
-    background-image: url("../circle.png");
-    background-size: 136vh;
+    background-image: url("../circleEdit.png");
+    background-size: 52%;
     background-repeat: no-repeat;
-    background-position: -34% 12%;
+}
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    padding: 5px;
+    background-color:rgba(12,204, 85, 1);
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+#img {
+    z-index: -1;
+    height: 120%;
+    position: 100% 100%;
+}
+.row{
+    width: 100%;
+}
+.col-6{
+    width: 50%;
+    height: 100vh;
+}
+
+.textBox{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+
 }

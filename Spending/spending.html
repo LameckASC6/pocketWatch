@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700|Cabin:400,700&display=swap" rel="stylesheet">
-    <link href="spending.css" rel="stylesheet" type="text/css">
+    <link href="spending.css" rel="stylesheet" defer type="text/css">
     <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
     <script>
         // Your web app's Firebase configuration
@@ -62,14 +62,14 @@
                     <form class="addContainer row">
                         <div class="col-8">
                             <div class="addInput">
-                                <input type="text" id="amount" placeholder="Amount">
+                                <input type="text" id="amount" placeholder=" Amount">
                             </div>
                             <div class="addInput">
-                                <input type="text" id="category" placeholder="Category">
+                                <input type="text" id="category" placeholder=" Category">
                             </div>
                         </div>
                         <div class="col-4 button">
-                            <button id="addButton"></button>
+                            <button id="addButton">Submit</button>
                         </div>
                     </form>
                     <div class="reciept">

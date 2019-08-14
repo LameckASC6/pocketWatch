@@ -1,6 +1,7 @@
 const database = firebase.database().ref();
 let pieChart = document.getElementById("pieChart").getContext("2d");
 let category = document.getElementById("category");
+
 let amount = document.getElementById("amount");
 let addButton = document.getElementById("addButton");
 let totalText = document.getElementById("total");
@@ -14,20 +15,16 @@ function getRandomColor() {
     }
     return color;
 }
-let total = 70;
+let total = 0;
 let chartData = {
     type: 'pie',
     data: {
-        labels: ['Food', 'Shopping'],
+        labels: [],
         datasets: [{
             label: 'Amount',
             data: [
-                25,
-                45,
             ],
         backgroundColor: [
-                'green',
-                'red'
             ]
         }]
     },
@@ -51,12 +48,14 @@ function inArray(looking, array) {
 totalText.innerText = `Total: $${total}`;
 
 function addClick(event) {
+    let categoryVal = category.value;
+    categoryVal = categoryVal.charAt(0).toUpperCase() + categoryVal.slice(1).toLowerCase();
     event.preventDefault();
-    if (category.value != "" && amount.value != "" && inArray(category.value, chartData.data.labels) != true) {
-        chartData.data.labels.push(category.value);
+    if (categoryVal != "" && amount.value != "" && inArray(categoryVal, chartData.data.labels) != true) {
+        chartData.data.labels.push(categoryVal);
         chartData.data.datasets[0].data.push(parseInt(amount.value));
         chartData.data.datasets[0].backgroundColor.push(getRandomColor());
-    } else if (category.value != "" && amount.value != "") {
+    } else if (categoryVal != "" && amount.value != "") {
         let newAmount = chartData.data.datasets[0].data[duplicate] += parseInt(amount.value);
         chartData.data.datasets[0].data.splice([duplicate], 1, newAmount);
     }
@@ -64,12 +63,14 @@ function addClick(event) {
     totalText.innerText = `Total: $${total}`;
     spendingChart.update();
     let reciept = document.createElement("h4");
+    reciept.id="reciept";
     reciept.style.backgroundColor = "whitesmoke";
     reciept.style.marginLeft = "1%";
     reciept.style.marginRight = "1%";
     reciept.style.width = "98%";
     reciept.style.color = "black";
-    reciept.innerText = `${category.value} : $${amount.value}`;
+    reciept.style.textTransform = "capitalize";
+    reciept.innerText = `${categoryVal} : $${amount.value}`;
     reciepts.prepend(reciept);
     console.log(reciept.innerText);
     console.log(total);

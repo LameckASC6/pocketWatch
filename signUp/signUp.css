@@ -83,3 +83,6 @@ input:focus{
   #title{
       font-size: 55px;
   }
+  #submit_button {
+      margin-bottom: 10px;
+  }

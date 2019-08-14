@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="178361234445-fp76ho0kckgu2e7k04k4bb8k75f3ij7u.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
@@ -48,21 +49,23 @@
                 <input type="text" id="username" placeholder="Username">
             </div>
             <div class="loginInput">
-                <input type="text" id="password" placeholder="Password">
+                <input type="password" id="password" placeholder="Password">
             </div>
             <div class="loginInput">
-                <input type="text" id="confirmPassword" placeholder="Confirm Password">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
             </div>
             <button id="submit_button">
                 Sign Up
             </button>
         </form>
+        <div id="my-signin2"></div>
         <div id="buttonLogin">
             <a href="../login/login.html">
                 LOGIN
             </a>
         </div>
     </div>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
 
 </html>

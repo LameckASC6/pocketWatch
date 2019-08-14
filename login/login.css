@@ -66,7 +66,10 @@ input:focus{
     flex-direction: column;
     justify-content: center;
 }
-
+#my-signin2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 #submit_button{
     display : inline-block;  
     border-style : solid;
@@ -81,6 +84,6 @@ input:focus{
     border-color : rgba(12,204,85,1);
     background-color: rgba(12,204,85,1);
   }
-  #title{
+#title{
     font-size: 55px;
 }
