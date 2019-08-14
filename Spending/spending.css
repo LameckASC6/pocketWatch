@@ -17,7 +17,7 @@ body, html {
     width: 100%;
 }
 .reciept{
-    background-color: gray;
+    background-color: rgba(12,204, 85, 1);
     margin-top: 2vw;
 }
 
@@ -142,6 +142,3 @@ h3 {
     background: rgba(12,204, 85, 1);  
     }
     /* end of the forced scrolling */
-#reciept {
-    background-color: green;
-}
