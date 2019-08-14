@@ -8,6 +8,11 @@ body, html {
     height: 100%;
 }
 
+.reciept{
+    background-color: gray;
+    margin-top: 2vw;
+}
+
 #navBar {
     display: flex;
     width: 93vw;

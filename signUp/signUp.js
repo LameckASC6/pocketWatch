@@ -37,17 +37,16 @@ function signUp(event) {
     const value = {
         Email: email.value,
         Username: username.value,
-        Password: hashedPassword
+        Password: hashedPassword,
     }
 
     //Update database here
     if(emailPass == true && passwordPass1 == true && passwordPass2 == true){
         console.log("Valid inputs");
-        database.push(value);
+        database.child('users').push(value);
     }
 }
 
-
-
-
 signUpButton.addEventListener('click', signUp);
+
+

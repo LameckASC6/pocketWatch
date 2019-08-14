@@ -2,21 +2,7 @@ body {
     margin: 0;
     padding: 0;
 }
-#buttonLogin{
-    margin-top: -10vw;
-    display : inline-block;  
-    border-style : solid;
-    border-width : 1vw;;
-    box-shadow : 0 1px 4px rgba(0,0,0,.6);
-    font-size : 20px;;
-    font-weight : bold;
-    color : #ffff;
-    text-shadow : 0 1px 3px rgba(0,0,0,.4);
-    text-decoration : none;
-    border-color : rgba(12,204,85,1);
-    background-color: rgba(12,204,85,1);
-    text-decoration: none;
-}
+
 #navBar {
     display: flex;
     width: 96vw;

@@ -1,7 +1,10 @@
+const database = firebase.database().ref();
 let pieChart = document.getElementById("pieChart").getContext("2d");
 let category = document.getElementById("category");
 let amount = document.getElementById("amount");
 let addButton = document.getElementById("addButton");
+let totalText = document.getElementById("total");
+let reciepts = document.getElementById("reciepts");
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -11,7 +14,7 @@ function getRandomColor() {
     }
     return color;
 }
-
+let total = 70;
 let chartData = {
     type: 'pie',
     data: {
@@ -43,6 +46,10 @@ function inArray(looking, array) {
     return false;
 }
 
+
+
+totalText.innerText = `Total: $${total}`;
+
 function addClick(event) {
     event.preventDefault();
     if (category.value != "" && amount.value != "" && inArray(category.value, chartData.data.labels) != true) {
@@ -53,12 +60,22 @@ function addClick(event) {
         let newAmount = chartData.data.datasets[0].data[duplicate] += parseInt(amount.value);
         chartData.data.datasets[0].data.splice([duplicate], 1, newAmount);
     }
+    total = total + parseInt(amount.value);
+    totalText.innerText = `Total: $${total}`;
     spendingChart.update();
+    let reciept = document.createElement("h4");
+    reciept.style.backgroundColor = "whitesmoke";
+    reciept.style.marginLeft = "1%";
+    reciept.style.marginRight = "1%";
+    reciept.style.width = "98%";
+    reciept.style.color = "black";
+    reciept.innerText = `${category.value} : $${amount.value}`;
+    reciepts.prepend(reciept);
+    console.log(reciept.innerText);
+    console.log(total);
 }
 
-function checkCategory() {
 
-}
 addButton.addEventListener('click', addClick);
 
 let spendingChart = new Chart(pieChart, chartData);

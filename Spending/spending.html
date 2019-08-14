@@ -12,6 +12,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700|Cabin:400,700&display=swap" rel="stylesheet">
     <link href="spending.css" rel="stylesheet" type="text/css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCaQsq7cUWnvMeCw98kXi_VlmYqB0cM_0",
+            authDomain: "pocketwatch-dd456.firebaseapp.com",
+            databaseURL: "https://pocketwatch-dd456.firebaseio.com",
+            projectId: "pocketwatch-dd456",
+            storageBucket: "pocketwatch-dd456.appspot.com",
+            messagingSenderId: "178361234445",
+            appId: "1:178361234445:web:917ab3f6431bf805"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
@@ -57,6 +72,11 @@
                             <button id="addButton"></button>
                         </div>
                     </form>
+                    <div class="reciept">
+                        <h1 id="total"></h1>
+                        <div id="reciepts">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
