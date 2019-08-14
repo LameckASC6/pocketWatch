@@ -135,10 +135,10 @@ h3 {
     
     
     ::-webkit-scrollbar-thumb {
-    background: rgba(12,204, 85, .75);  
+    background: black;  
     }
     
     ::-webkit-scrollbar-thumb:hover {
-    background: rgba(12,204, 85, 1);  
+    background: black;  
     }
     /* end of the forced scrolling */

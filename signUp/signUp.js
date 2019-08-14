@@ -41,6 +41,8 @@ function renderButton() {
     console.log(error);
   }
   //End of Google Sign Up
+
+
 async function signUp(event) {
     event.preventDefault();
 
@@ -82,10 +84,13 @@ async function signUp(event) {
     if (emailPass == true && passwordPass1 == true && passwordPass2 == true) {
         let usernameCheck = await database.child('users').orderByChild('username').equalTo(value.username).once("value");
         usernameCheck = usernameCheck.val();
-        if(!myVal){
-            console.log("Valid inputs");
-            database.child('user').push(value);
+        const userExists = await database.child(`user/${value.username}`).once('value');
+        if(userExists.exists()) {
+            alert('User alrady exists');
+            return; 
         }
+        console.log("Valid inputs");
+        database.child(`users/${value.username}`).set(value);
     }
 }
 
