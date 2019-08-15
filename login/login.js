@@ -17,6 +17,7 @@ async function login(e){
     alert(`Logged In as ${userInfo.val().username}`)
     console.log(userInfo.val().username);
     sessionStorage.setItem("user", userInfo.val().username);
+    window.location.href = "../Overview/overview.html";
   }
 }
 
