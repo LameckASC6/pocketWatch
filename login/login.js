@@ -14,7 +14,6 @@ async function login(e){
   const userPass = userInfo.val().password;
   console.log(userInfo.val());
   if(bcrypt.compareSync(password.value, userPass)){
-    alert(`Logged In as ${userInfo.val().username}`)
     console.log(userInfo.val().username);
     sessionStorage.setItem("user", userInfo.val().username);
     window.location.href = "../Overview/overview.html";

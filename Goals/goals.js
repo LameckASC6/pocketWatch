@@ -43,22 +43,6 @@ let chartData = {
     }
 }
 
-let chartData = {
-    type: 'bar',
-    data: {
-        labels: [],
-        datasets: [
-            {
-                label: 'Amount',
-                data: [],
-                backgroundColor: []
-            }
-        ]
-    },
-    options: {
-
-    }
-}
 let user = sessionStorage.getItem('user');
 drawChart();
 let duplicate;

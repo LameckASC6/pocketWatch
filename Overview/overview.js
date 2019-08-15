@@ -145,6 +145,7 @@ async function drawChart(labels, datasets, colors) {
     }
     console.log(chartData);
     spendingChart.update();
+    budgetChart.update();
     
 
     // if (categoryVal != "" && amount.value != "" && inArray(categoryVal, labels) != true) {
@@ -161,6 +162,7 @@ async function drawChart(labels, datasets, colors) {
 addButton.addEventListener('click', addClick);
 
 let spendingChart = new Chart(pieChart, chartData);
+let budgetChart = new Chart(barChart, barChartData);
 
 async function login(e) {
     e.preventDefault();
