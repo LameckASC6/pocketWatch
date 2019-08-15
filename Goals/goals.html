@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>overview</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="goals.css" rel="stylesheet" type="text/css">
     <script src="goals.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700|Cabin:400,700&display=swap" rel="stylesheet">
+    <link href="goals.css" rel="stylesheet" defer type="text/css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCaQsq7cUWnvMeCw98kXi_VlmYqB0cM_0",
+            authDomain: "pocketwatch-dd456.firebaseapp.com",
+            databaseURL: "https://pocketwatch-dd456.firebaseio.com",
+            projectId: "pocketwatch-dd456",
+            storageBucket: "pocketwatch-dd456.appspot.com",
+            messagingSenderId: "178361234445",
+            appId: "1:178361234445:web:917ab3f6431bf805"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
@@ -25,20 +42,53 @@
                     <a href="../Overview/overview.html">
                         <h3 id="over">Overview</h3>
                     </a>
-                    <a href="../Spending/spending.html">
+                    <a href="">
                         <h3 id="spend">Spending</h3>
                     </a>
-                    <a href="">
+                    <a href="../Goals/goals.html">
                         <h3 id="goal">Goals</h3>
                     </a>
                 </div>
             </div>
         </div>
-        <div>
-            
+        <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+                <div class="chart">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                <div id="add">
+                    <form class="addContainer row">
+                        <div class="col-8">
+                            <div class="addInput">
+                                <input type="text" id="amount" placeholder=" Amount">
+                            </div>
+                            <div class="addInput">
+                                <input type="text" id="category" placeholder=" Category">
+                            </div>
+                        </div>
+                        <div class="col-4 button">
+                            <button id="addButton">Submit</button>
+                        </div>
+                    </form>
+                    <div class="reciept">
+                        <div id="reciepts">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

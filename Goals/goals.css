@@ -8,12 +8,26 @@ body, html {
     height: 100%;
 }
 
+#amount{
+    width: 100%;
+    margin-bottom: 1vw;
+}
+
+#category{
+    width: 100%;
+}
+.reciept{
+    background-color: rgba(12,204, 85, 1);
+    margin-top: 2vw;
+}
+
 #navBar {
     display: flex;
     width: 93vw;
     z-index: -1;
     align-items: center;
 }
+
 #navText {
     display: flex;
     align-items: center;
@@ -23,7 +37,6 @@ body, html {
     height: 90px;  
     color: white;
     font-family: 'BioRhyme', serif;
-
 }
 
 #navLink{
@@ -82,10 +95,50 @@ h3 {
     font-size: 22px;
 }
 
-#add{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    padding-bottom: 10px;
-    padding-right: 10px;
+#add {
+    width: 100%;
+    text-align: center;
 }
+
+.button h1 {
+    font-size: 10px;
+}
+
+.row {
+    width: 100%;
+}
+
+.chart {
+    width: 65%;
+}
+
+#addButton{
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+}
+
+/* Forced Scrolling Reciept */
+#reciepts {
+    border: none;
+    padding: 5px;
+    font: 24px/36px sans-serif;
+    height: 200px;
+    overflow: scroll;
+    }
+    
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+    
+    
+    ::-webkit-scrollbar-thumb {
+    background: black;  
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+    background: black;  
+    }
+    /* end of the forced scrolling */

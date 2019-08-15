@@ -11,9 +11,6 @@ let datasets;
 let colors;
 let categoryVal;
 let total = 0;
-let user = sessionStorage.getItem('user');
-totalText.innerText = `Total: $${total}`;
-drawChart();
 
 function getRandomColor() {
     let letters = '0123456789ABCDEF';
@@ -40,7 +37,9 @@ let chartData = {
 
     }
 }
-
+let user = sessionStorage.getItem('user');
+totalText.innerText = `Total: $${total}`;
+drawChart();
 let duplicate;
 
 function inArray(looking, array) {
@@ -97,7 +96,7 @@ async function drawChart(labels, datasets, colors) {
     datasets = datasets.val();
     colors = colors.val();
     console.log(labels, datasets, colors)
-
+    // Turning the database objects into arrays
     labels = Object.keys(labels).map(function (key) {
         return [labels[key]];
     });
@@ -107,7 +106,7 @@ async function drawChart(labels, datasets, colors) {
     colors = Object.keys(colors).map(function (key) {
         return [colors[key]];
     });
-
+    // Adding stored infro from database into pie chart
     for (i = 0; i < labels.length; i++) {
         chartData.data.labels.push(labels[i]);
     }
@@ -117,6 +116,16 @@ async function drawChart(labels, datasets, colors) {
     for (i = 0; i < colors.length; i++) {
         chartData.data.datasets[0].backgroundColor.push(colors[i]);
     }
+
+    // if (categoryVal != "" && amount.value != "" && inArray(categoryVal, labels) != true) {
+    //     chartData.data.labels.push(categoryVal);
+    //     chartData.data.datasets[0].data.push(parseInt(amount.value));
+    //     chartData.data.datasets[0].backgroundColor.push(getRandomColor());
+
+    // } else if (categoryVal != "" && amount.value != "") {
+    //     let newAmount = chartData.data.datasets[0].data[duplicate] += parseInt(amount.value);
+    //     chartData.data.datasets[0].data.splice([duplicate], 1, newAmount);
+    // }
 }
 
 addButton.addEventListener('click', addClick);
