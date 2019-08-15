@@ -91,6 +91,7 @@ async function signUp(event) {
         }
         console.log("Valid inputs");
         database.child(`users/${value.username}`).set(value);
+        window.location.href = "../Overview/overview.html";
     }
 }
 

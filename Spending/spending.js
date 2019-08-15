@@ -1,3 +1,9 @@
+if (sessionStorage.getItem('user') == null || sessionStorage.getItem('user') == "null") {
+    window.location.href = "../login/login.html";
+}
+
+document.querySelector("#signout").addEventListener('click', signout);
+
 const database = firebase.database().ref();
 let pieChart = document.getElementById("pieChart").getContext("2d");
 let category = document.getElementById("category");
@@ -43,10 +49,9 @@ drawChart();
 let duplicate;
 
 function inArray(looking, array) {
-    var count = array.length;
-    for (var i = 0; i < count; i++) {
-        if (array[i] === looking) {
-            duplicate = i;
+    let count = array.length;
+    for (let i = 0; i < count; i++) {
+        if (array[i] == looking) {
             return true;
         }
     }
@@ -59,7 +64,7 @@ async function addClick(event) {
     event.preventDefault();
     total = total + parseInt(amount.value);
     totalText.innerText = `Total: $${total}`;
-    spendingChart.update();
+    console.log(spendingChart)
     let reciept = document.createElement("h4");
     reciept.id = "reciept";
     reciept.style.backgroundColor = "#edf4ed";
@@ -89,6 +94,13 @@ async function addClick(event) {
 }
 
 async function drawChart(labels, datasets, colors) {
+    chartData.data.datasets = [
+        {
+            label: 'Amount',
+            data: [],
+            backgroundColor: []
+        }
+    ];
     labels = await database.child(`users/${user}/chartData/labels`).once('value');
     datasets = await database.child(`users/${user}/chartData/datasets`).once('value');
     colors = await database.child(`users/${user}/chartData/color`).once('value');
@@ -106,16 +118,28 @@ async function drawChart(labels, datasets, colors) {
     colors = Object.keys(colors).map(function (key) {
         return [colors[key]];
     });
+
+    let duplicate;
     // Adding stored infro from database into pie chart
-    for (i = 0; i < labels.length; i++) {
-        chartData.data.labels.push(labels[i]);
+    console.log(labels);
+    console.log(datasets);
+    console.log(colors)
+    for (let i = 0; i < labels.length; i++) {
+        if(!inArray(labels[i], chartData.data.labels)){
+            chartData.data.labels.push(labels[i][0]);
+            duplicate = i;
+        }
     }
-    for (i = 0; i < datasets.length; i++) {
-        chartData.data.datasets[0].data.push(datasets[i]);
+    for (let j = 0; j < datasets.length; j++) {
+        chartData.data.datasets[0].data.push(datasets[j][0]);
     }
-    for (i = 0; i < colors.length; i++) {
-        chartData.data.datasets[0].backgroundColor.push(colors[i]);
+    for (let j = 0; j < colors.length; j++) {
+        console.log(colors[j][0]);
+        chartData.data.datasets[0].backgroundColor.push(colors[j][0]);
     }
+    console.log(chartData);
+    spendingChart.update();
+    
 
     // if (categoryVal != "" && amount.value != "" && inArray(categoryVal, labels) != true) {
     //     chartData.data.labels.push(categoryVal);
@@ -155,3 +179,7 @@ async function pushChartData(labels, datasets, colors) {
 }
 
 
+function signout(){
+    sessionStorage.setItem('user', null);
+    window.location.href = "../index.html";
+}

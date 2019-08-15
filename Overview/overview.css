@@ -7,109 +7,20 @@ body, html {
     width: 100%;
     height: 100%;
 }
-
-#navBar {
-    display: flex;
-    width: 93vw;
-    z-index: -1;
-    align-items: center;
-}
-
-#navText {
-    display: flex;
-    align-items: center;
-    width: 93vw;
-    position: absolute;
-    margin-left:7%;
-    height: 90px;  
-    color: white;
-    font-family: 'BioRhyme', serif;
-}
-
-#navLink{
-    z-index: 2;
-    display: flex;
-    width:70%;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 8%;
-    /* justify-content: space-around; */
-}
-#title {
-    margin-left: 9%;
-    font-size: 50px;
-}
-#logo {
-    height: 180px;
-}
-
-#rect{
+#signout {
+    display:flex;
+    justify-content:center;
+    height: 5vh;
+    width: 80px;
+    margin-left: 92vw;
+    border-color : rgba(12,204,85,1);
     background-color: rgba(12,204, 85, 1);
-    width:93vw;
-    height: 90px;   
-    position: absolute;
-    z-index: -5
-}
-
-a{   
-    text-align: center;
-    padding: 20px 0;
-    display: block;
-    position: relative;
-    text-decoration: none;
-    color: white;
-    margin-left: 12%;
-    font-size: 22px;
-}
-a:link {
-    color: white;
-    
-    }
-    a:visited {
-    color: white;
-    
-    }
-    a:hover {
+    padding: 5px;
     color: whitesmoke;
-    
-    }
-h3 {
-    color: white;
     text-decoration: none;
-    margin-left: 12%;
-    font-size: 22px;
-}
-
-#add {
-    width: 100%;
-    text-align: center;
-}
-
-/* .addInput {
-} */
-
-.button h1 {
-    font-size: 10px;
-}
-
-.row {
-    width: 100%;
-}
-
-.chart {
-    width: 65%;
-}
-
-/* font-family: 'BioRhyme', serif;
-font-family: 'Cabin', sans-serif; */
-
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
+    font-size: 16px;
+    height: 40px;
+    }
 #amount{
     width: 100%;
     margin-bottom: 1vw;
@@ -220,3 +131,76 @@ h3 {
     padding: 0px 0px 0px 0px;
 }
 
+/* Forced Scrolling Reciept */
+#reciepts {
+    border: none;
+    padding: 5px;
+    font: 24px/36px sans-serif;
+    height: 200px;
+    overflow: scroll;
+    }
+    
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+    
+    
+    ::-webkit-scrollbar-thumb {
+    background: black;  
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+    background: black;  
+    }
+    /* end of the forced scrolling */
+
+    @media (max-width: 376px) {
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        #logo {
+            width: 120px;
+            height: 120px;
+        }
+        #title {
+            display: none;
+        }
+
+        #rect{
+            height: 70px;  
+            width: 85vw; 
+        }
+        #signout{
+            margin-left: 79vw;
+        }
+        .row{
+            width: 110%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+        .col-6{
+            height: 50px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .addInput{
+            margin-bottom: 10px;
+            width: 120px;
+        }
+        #addButton{
+            width: 95px;
+            height: 100%;
+            padding: 0px 0px 0px 0px;
+        }
+        .chart{
+            width: 100vw;
+        }
+        .reciept{
+         width: 100vw;   
+         margin-left: -95px;
+        }
+    }

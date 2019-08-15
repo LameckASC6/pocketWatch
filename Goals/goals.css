@@ -27,7 +27,20 @@ body, html {
     z-index: -1;
     align-items: center;
 }
-
+#signout {
+    display:flex;
+    justify-content:center;
+    height: 5vh;
+    width: 80px;
+    margin-left: 92vw;
+    border-color : rgba(12,204,85,1);
+    background-color: rgba(12,204, 85, 1);
+    padding: 5px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 16px;
+    height: 40px;
+    }
 #navText {
     display: flex;
     align-items: center;
@@ -142,3 +155,62 @@ h3 {
     background: black;  
     }
     /* end of the forced scrolling */
+
+    @media (max-width: 376px) {
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        #logo {
+            width: 120px;
+            height: 120px;
+        }
+        #title {
+            display: none;
+        }
+        #navText {
+            margin-left: 22%;
+        }
+        #navLink{
+            margin-left: 0%;
+        }
+        h3 {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        #rect{
+            height: 70px;  
+            width: 85vw; 
+        }
+        #signout{
+            margin-left: 79vw;
+        }
+        .row{
+            width: 110%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+        .col-6{
+            height: 50px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .addInput{
+            margin-bottom: 10px;
+            width: 120px;
+        }
+        #addButton{
+            width: 95px;
+            height: 100%;
+            padding: 0px 0px 0px 0px;
+        }
+        .chart{
+            width: 100vw;
+        }
+        .reciept{
+         width: 100vw;   
+         margin-left: -95px;
+        }
+    }

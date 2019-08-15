@@ -5,17 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>overview</title>
+    <title>PocketWatch</title>
     <script src="overview.js" defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700|Cabin:400,700&display=swap" rel="stylesheet">
-    <link href="overview.css" rel="stylesheet" type="text/css">
+    <link href="overview.css" rel="stylesheet" defer type="text/css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCaQsq7cUWnvMeCw98kXi_VlmYqB0cM_0",
+            authDomain: "pocketwatch-dd456.firebaseapp.com",
+            databaseURL: "https://pocketwatch-dd456.firebaseio.com",
+            projectId: "pocketwatch-dd456",
+            storageBucket: "pocketwatch-dd456.appspot.com",
+            messagingSenderId: "178361234445",
+            appId: "1:178361234445:web:917ab3f6431bf805"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
     <div>
+        <div class="button">
+            <button id="signout">Sign Out</button>
+         </div>
         <div id="navBar">
             <div id="image">
                 <image src="../pocketWatchLogo_Circle.png" id="logo"></image>
@@ -24,14 +42,14 @@
                 <h1 id="title">PocketWatch</h1>
                 <div id="rect"></div>
                 <div id="navLink">
-                    <a href="">
+                    <a href="../Overview/overview.html">
                         <h3 id="over">Overview</h3>
                     </a>
-                    <a href="../Spending/spending.html">
+                    <a href="">
                         <h3 id="spend">Spending</h3>
                     </a>
                     <a href="../Goals/goals.html">
-                        <h3 id="goal">Goals</h3>
+                        <h3 id="goal">Budget</h3>
                     </a>
                 </div>
             </div>
@@ -57,6 +75,9 @@
                             <button id="addButton">Submit</button>
                         </div>
                     </form>
+                    <div class="reciept">
+                        <canvas id="barChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
